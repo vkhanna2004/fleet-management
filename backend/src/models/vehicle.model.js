@@ -22,11 +22,13 @@ const vehicleSchema = new Schema(
       unique: true,
       uppercase: true,
       trim: true,
+      index:true
     },
     status: {
       type: String,
       enum: ["Available", "In Use", "Maintenance", "Unavailable"],
       default: "Available",
+      index:true
     },
     currentLocation: {
       latitude: {
@@ -41,13 +43,17 @@ const vehicleSchema = new Schema(
     year: {
       type: Number,
       required: true,
+      min: 2000, 
+      max: new Date().getFullYear(),
     },
     fuelType: {
       type: String,
+      enum:["Diesel","Petrol","Electric","CNG","Other"],
       required: true,
     },
     capacity: {
       type: Number,
+      min:1
     },
     lastUpdated: {
       type: Date,

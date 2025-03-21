@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-maintainenceSchema = new Schema(
+const maintainenceSchema = new Schema(
   {
     maintainenceid: {
       type: mongoose.Schema.Types.ObjectId,
@@ -8,7 +8,7 @@ maintainenceSchema = new Schema(
     },
     vehicleid: {
       type: Schema.Types.ObjectId,
-      ref: Vehicle,
+      ref: "Vehicle",
       required: true,
       index: true,
     },
